@@ -18,6 +18,8 @@ environment {
 
         stage('SonarQube analysis') {
         environment {
+            env.JAVA_HOME="${tool 'java-11-openjdk'}"
+             env.PATH="${env.JAVA_HOME}/bin:${env.PATH}"
             scannerHome = tool 'DevopsShankarSonarQube-Scanner'
         }
         steps{
@@ -28,3 +30,4 @@ environment {
     }
 }
 } 
+
