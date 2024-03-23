@@ -15,15 +15,5 @@ pipeline {
                 echo "----------- build completed ----------"
             }
         }
-        stage('SonarQube analysis') {
-            environment {
-                scannerHome = tool 'DevopsShankarSonarQube-Scanner'
-            }
-            steps {
-                withSonarQubeEnv('DevopsShankarSonarQube-Server') {
-                    sh "${scannerHome}/bin/sonar-scanner"
-                }
-            }
-        }
     }
 }
